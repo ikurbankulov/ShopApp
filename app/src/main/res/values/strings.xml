@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">UiLover</string>
+    <!-- Menu Drawer Strings -->
+    <string name="categories_1">Categories</string>
+    <string name="ad_my_ads">My ads</string>
+    <string name="ad_car">Cars</string>
+    <string name="ad_pc">Computers</string>
+    <string name="ad_smartphone">Smartphones</string>
+    <string name="ad_other">Other</string>
+    <string name="categories_2">Account</string>
+    <string name="ac_sign_up">Sign Up</string>
+    <string name="ac_sign_in">Sign In</string>
+    <string name="ac_sign_out">Log Out</string>
+    <string name="open_drawer">Open</string>
+    <string name="close_drawer">Close</string>
+
+</resources>

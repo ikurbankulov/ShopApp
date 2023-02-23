@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "189321133066",
+    "project_id": "marketneko-7a0fa",
+    "storage_bucket": "marketneko-7a0fa.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:189321133066:android:836c07482f6b3e54b533f3",
+        "android_client_info": {
+          "package_name": "com.example.uilover"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "189321133066-t5drl9fofhdn08etspepr9decbd2fniu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB8vvaxNHIyNtwnH639dQk9Kzrxqpc1WT0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "189321133066-t5drl9fofhdn08etspepr9decbd2fniu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
