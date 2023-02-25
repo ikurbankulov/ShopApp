@@ -1,5 +1,6 @@
 package com.example.uilover
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
@@ -13,6 +14,7 @@ class SignUpActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivitySignUpBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        versionCheck()
         binding.buttonSignup.setOnClickListener {
             val name = binding.editTextName.text.toString().trim()
             val lastName = binding.editTextLastName.text.toString().trim()
@@ -23,6 +25,7 @@ class SignUpActivity : AppCompatActivity() {
 
     }
 
+    @SuppressLint("ObsoleteSdkInt")
     private fun versionCheck() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             window.setFlags(

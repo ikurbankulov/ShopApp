@@ -15,12 +15,13 @@ import com.example.uilover.databinding.ActivityDrawerBinding
 import com.example.uilover.databinding.ActivityMainBinding
 import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 
 private lateinit var binding: ActivityMainBinding
+private var auth = Firebase.auth
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
-
-    val mAuth = FirebaseAuth.getInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -70,7 +71,9 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 startActivity(intent)
             }
             R.id.id_sign_out -> {
-
+                auth.signOut()
+                var intent = Intent(this, IntroActivity::class.java)
+                startActivity(intent)
             }
         }
         binding.includedView.drawerLayout.closeDrawer(GravityCompat.START)
