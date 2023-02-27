@@ -14,5 +14,9 @@
     <string name="open_drawer">Open</string>
     <string name="close_drawer">Close</string>
     <string name="registrarion_error">Registration Error!</string>
+    <string name="Login_failed">Login failed</string>
+    <string name="login_or_sign_up">login or sign up</string>
+    <string name="example_mail_com">example@mail.com</string>
+    <string name="sign_up_error">Sign Up error!</string>
 
 </resources>

@@ -2,18 +2,15 @@ package com.example.uilover
 
 import android.annotation.SuppressLint
 import android.content.ContentValues.TAG
+import android.content.Context
 import android.content.Intent
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.view.View
 import android.view.WindowManager
 import android.widget.Toast
-import androidx.lifecycle.LiveData
 import com.example.uilover.databinding.ActivityLoginBinding
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 
@@ -21,6 +18,7 @@ import com.google.firebase.ktx.Firebase
 class LoginActivity : AppCompatActivity() {
     private lateinit var binding: ActivityLoginBinding
     private var auth = Firebase.auth
+    private val invoice = MainActivity()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,8 +32,8 @@ class LoginActivity : AppCompatActivity() {
 
         }
         binding.textViewForgetPassword.setOnClickListener {
-            val intent = Intent(this, ResetPasswordActivity::class.java)
-            intent.putExtra("resetEmail", binding.editTextEmail.text.toString())
+            val intent =
+                ResetPasswordActivity.newIntent(this, binding.editTextEmail.text.toString())
             startActivity(intent)
         }
         binding.buttonGoogle.setOnClickListener {
@@ -59,6 +57,7 @@ class LoginActivity : AppCompatActivity() {
         auth.createUserWithEmailAndPassword(email, password)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
+
                     // Sign in success, update UI with the signed-in user's information
                     Log.d(TAG, "createUserWithEmail:success")
                     val user = auth.currentUser
@@ -82,16 +81,23 @@ class LoginActivity : AppCompatActivity() {
                 val user = auth.currentUser
                 val intent = Intent(this, MainActivity::class.java)
                 startActivity(intent)
+                finish()
             } else {
                 Log.d(TAG, task.exception.toString())
                 Toast.makeText(
                     this,
-                    getString(R.string.registrarion_error),
+                    getString(R.string.Login_failed),
                     Toast.LENGTH_LONG
                 ).show()
             }
         }
+// TODO: create authStateListener 
+    }
 
+    companion object {
+        fun newIntent(context: Context): Intent {
+            return Intent(context, LoginActivity::class.java)
+        }
     }
 
     @SuppressLint("ObsoleteSdkInt")
